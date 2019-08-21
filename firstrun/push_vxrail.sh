@@ -15,9 +15,11 @@ git stash apply
 
 error_code=$?
 if [ "$error_code" != "0" ]; then
-    echo "git stash apply don't work well!"
-    exit $error_code
+    echo "will not run: git stash drop"
+    # exit $error_code
+else
+    git stash drop
 fi
 
-git stash drop
+git push vxrail $DEV_BRANCH
 git push vxrail "$DEV_BRANCH:$MASTER_BRANCH"
