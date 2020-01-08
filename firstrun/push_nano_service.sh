@@ -11,17 +11,8 @@ git stash
 
 git rebase "vxrail/$MASTER_BRANCH"
 
-git stash apply
+git stash pop
 
-error_code=$?
-if [ "$error_code" != "0" ]; then
-    git stash drop
-
-else
-    git stash drop
-
-    git push origin $DEV_BRANCH
-    # git push vxrail "$DEV_BRANCH:$MASTER_BRANCH"
-fi
-
+git push origin $DEV_BRANCH
+# git push vxrail "$DEV_BRANCH:$MASTER_BRANCH"
 
